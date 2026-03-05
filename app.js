@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Search Logic
-    const performSearch = () => {
-        const query = searchInput.value.trim().toLowerCase();
+    const performSearch = async () => {
+        const query = searchInput.value.trim();
         const selectedDate = dateFilter.value; // YYYY-MM-DD
         if (!query) return;
 
@@ -71,26 +71,46 @@ document.addEventListener('DOMContentLoaded', () => {
         welcomeScreen.style.display = 'none';
         sheetContainer.style.display = 'none';
 
-        // Find matches
-        const allRoutes = Object.values(routesData);
-        const match = allRoutes.find(route => {
-            // 1. Filter by Date (comparing only the YYYY-MM-DD part)
-            const routeDate = route.Fecha ? route.Fecha.split('T')[0] : "";
-            if (routeDate !== selectedDate) return false;
+        try {
+            // Updated to call your local API with a date parameter for worker searches
+            const response = await fetch(`http://localhost:3000/api/route/${query}?date=${selectedDate}`);
 
-            // 2. Filter by Query (Nº Full OR Worker ID)
-            const fullNumber = String(route.Còdigo);
-            const workerId = getWorkerId(route.Titular);
+            if (response.ok) {
+                const route = await response.json();
 
-            return fullNumber === query || workerId === query;
-        });
+                // Optional: Filter by Date if the backend doesn't (checking local consistency)
+                const routeDate = route.Fecha ? new Date(route.Fecha).toISOString().split('T')[0] : "";
+                if (routeDate && routeDate !== selectedDate) {
+                    errorMessage.textContent = `Se ha encontrado la hoja ${query} pero pertenece al día ${new Date(route.Fecha).toLocaleDateString()}.`;
+                    errorMessage.style.display = 'block';
+                    return;
+                }
 
-        if (match) {
-            populateSheet(match);
-            sheetContainer.style.display = 'block';
-        } else {
-            errorMessage.textContent = 'No se han encontrado resultados para este criterio y fecha.';
-            errorMessage.style.display = 'block';
+                populateSheet(route);
+                sheetContainer.style.display = 'block';
+            } else {
+                errorMessage.textContent = 'No se han encontrado resultados para este criterio y fecha en el servidor.';
+                errorMessage.style.display = 'block';
+            }
+        } catch (err) {
+            console.error('Fetch error:', err);
+            // Fallback to local data if server is down
+            const allRoutes = Object.values(routesData);
+            const match = allRoutes.find(route => {
+                const routeDate = route.Fecha ? route.Fecha.split('T')[0] : "";
+                if (routeDate !== selectedDate) return false;
+                const fullNumber = String(route.Còdigo);
+                const workerId = getWorkerId(route.Titular);
+                return fullNumber === query || workerId === query;
+            });
+
+            if (match) {
+                populateSheet(match);
+                sheetContainer.style.display = 'block';
+            } else {
+                errorMessage.textContent = 'Error de conexión con el servidor y no hay datos locales coincidentes.';
+                errorMessage.style.display = 'block';
+            }
         }
     };
 
@@ -161,7 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function populateSheet(data) {
-        const routeId = data["C\u00f2digo"] || data["Còdigo"] || '-';
+        console.log('Populating sheet with data:', data);
+        const routeId = data["Còdigo"] || data["C\u00f2digo"] || data["Codigo"] || '-';
 
         // Basic Info
         document.getElementById('val-codigo').textContent = routeId;
@@ -171,15 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('val-sectores').textContent = data["Sectores"] || '-';
         document.getElementById('val-turno').textContent = data["Turno"] || '-';
 
-        // Date formatting
-        if (data["Fecha"]) {
-            const date = new Date(data["Fecha"]);
-            document.getElementById('val-fecha').textContent = date.toLocaleDateString('es-ES');
-        }
+        const routeDate = data["Fecha"] ? new Date(data["Fecha"]).toLocaleDateString() : "-";
+        document.getElementById('val-fecha').textContent = routeDate;
 
-        // Vehicle Info Parsing
+        // Vehicle info
+        const vehFull = data["Vehículo"] || data["Veh\u00edculo"] || data["Vehiculo"] || "";
         // Expected format: "9133 - E9133BHV - B.ASPIR ..."
-        const vehFull = data["Veh\u00edculo"] || "";
         const vehParts = vehFull.split(' - ');
         if (vehParts.length >= 2) {
             document.getElementById('val-vehicle-calca').textContent = vehParts[0].trim();
