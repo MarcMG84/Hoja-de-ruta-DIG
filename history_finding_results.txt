@@ -1,0 +1,32 @@
+✅ History Finding Results
+
+
+--- TABLE: vision.srmtsr ---
+No date columns found.
+
+--- TABLE: vision.seguimiento_tramos ---
+Detected date columns: fec_hor
+  [fec_hor] Total: 8989, Min: 2026-02-24, Max: 2026-02-24
+
+--- TABLE: vision.responsable ---
+No date columns found.
+
+--- TABLE: vision.srm_responsable ---
+No date columns found.
+
+--- TABLE: vision.hr_control_salida ---
+Detected date columns: fecha_hoja
+  [fecha_hoja] Total: 0, Min: null, Max: null
+
+--- TABLE: vision.estado_gps ---
+Detected date columns: fecha_hoja_ruta, fecha_ultima_posicion
+  [fecha_hoja_ruta] Total: 303, Min: 2026-02-23, Max: 2026-02-24
+  [fecha_ultima_posicion] Total: 303, Min: 2024-09-14 08:28:37, Max: 2026-02-24 17:51:45
+
+--- TABLE: vision.porcentage ---
+Detected date columns: fec_hor
+  [fec_hor] Total: 9389, Min: 2024-01-01, Max: 2024-12-19
+
+--- TABLE: vision.tramos_no_realizado ---
+Detected date columns: fec_hor
+  [fec_hor] Total: 197621, Min: 2024-01-01, Max: 2024-12-19

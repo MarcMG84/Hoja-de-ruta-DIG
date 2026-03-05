@@ -1,0 +1,11 @@
+✅ DB Date Range Analysis
+
+--- vision.estado_gps ---
+Total records: 303
+Min Date: 2026-02-23
+Max Date: 2026-02-24
+
+--- vision.seguimiento_tramos ---
+Total records: 8989
+Min Date: 2026-02-24
+Max Date: 2026-02-24

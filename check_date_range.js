@@ -1,4 +1,5 @@
 const sql = require('mssql');
+const fs = require('fs');
 require('dotenv').config();
 
 const dbConfig = {
@@ -12,19 +13,29 @@ const dbConfig = {
     }
 };
 
-async function checkMaxDate() {
+async function checkDateRange() {
     try {
         let pool = await sql.connect(dbConfig);
-        console.log('✅ Connected to Azure SQL');
+        let results = '✅ DB Date Range Analysis\n\n';
 
-        const result = await pool.request().query("SELECT MAX(fec_pjt) as max_date, MIN(fec_pjt) as min_date FROM vision.seguimiento_tramos");
-        console.log('--- DATE RANGE (seguimiento_tramos) ---');
-        console.log(result.recordset);
+        const rangeGPS = await pool.request().query("SELECT MIN(fecha_hoja_ruta) as minDate, MAX(fecha_hoja_ruta) as maxDate, COUNT(*) as total FROM vision.estado_gps");
+        results += '--- vision.estado_gps ---\n';
+        results += `Total records: ${rangeGPS.recordset[0].total}\n`;
+        results += `Min Date: ${rangeGPS.recordset[0].minDate}\n`;
+        results += `Max Date: ${rangeGPS.recordset[0].maxDate}\n\n`;
 
+        const rangeTramos = await pool.request().query("SELECT MIN(fec_hor) as minDate, MAX(fec_hor) as maxDate, COUNT(*) as total FROM vision.seguimiento_tramos");
+        results += '--- vision.seguimiento_tramos ---\n';
+        results += `Total records: ${rangeTramos.recordset[0].total}\n`;
+        results += `Min Date: ${rangeTramos.recordset[0].minDate}\n`;
+        results += `Max Date: ${rangeTramos.recordset[0].maxDate}\n`;
+
+        fs.writeFileSync('db_date_results.txt', results);
+        console.log('Results written to db_date_results.txt');
         await sql.close();
     } catch (err) {
         console.error('❌ Error:', err.message);
     }
 }
 
-checkMaxDate();
+checkDateRange();

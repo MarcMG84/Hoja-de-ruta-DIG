@@ -17,91 +17,77 @@
         <div class="login-card engineering-card">
             <div class="technical-grid-bg"></div>
             <div class="login-logo">
-                <img src="https://i.ibb.co/XrnM3hB/logos-fcc-arema.png" alt="Logos FCC AREMA">
+                <img src="logo_vertical.jpg" alt="Logos FCC AREMA">
             </div>
-            <h2>Acceso Técnico</h2>
-            <div class="subtitle-engineering">SISTEMA DE GESTIÓN LOGÍSTICA V1.0</div>
-            <p>Se requiere autenticación para acceder a la base de datos de rutas.</p>
+            <h2>Accés Tècnic</h2>
+            <div class="subtitle-engineering">SISTEMA DE GESTIÓ LOGÍSTICA V1.0</div>
+            <p>Es requereix autenticació per accedir a la base de dades de rutes.</p>
             <div class="login-input-group">
-                <input type="password" id="login-password" placeholder="Clave de Acceso">
-                <button id="login-btn">VALIDAR CREDENCIALES</button>
+                <input type="password" id="login-password" placeholder="Clau d'Accés">
+                <button id="login-btn">VALIDAR CREDENCIALS</button>
             </div>
             <div id="login-error"
                 style="display: none; color: #ff5252; margin-top: 15px; font-size: 0.9rem; font-weight: 500;">
-                ❌ ERROR DE AUTENTICACIÓN: Acceso denegado.
+                ❌ ERROR D'AUTENTICACIÓ: Accés denegat.
             </div>
         </div>
     </div>
 
     <div id="app-content" style="display: none;">
-        <header>
-            <div class="logo-container" style="display: flex; align-items: center; gap: 10px;">
-                <div class="eng-logo-mark">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="var(--primary-blue)" />
-                        <path d="M2 17L12 22L22 17" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M2 12L12 17L22 12" stroke="var(--primary-blue)" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <span class="brand-text">DIGIROUTA <small>ENG</small></span>
+        <header class="main-header">
+            <div class="logo-container">
+                <img src="logo_vertical.jpg" alt="Girona + Neta Logo" class="header-logo">
             </div>
 
             <div class="search-box">
                 <input type="date" id="date-filter" class="eng-date-input">
-                <input type="text" id="route-search" placeholder="ID Trabajador o Nº Full...">
-                <button id="search-btn">LOCALIZAR</button>
+                <input type="text" id="route-search" placeholder="ID Treballador o Nº Full...">
+                <button id="search-btn">LOCALITZAR</button>
             </div>
 
-            <div class="user-info" style="display: flex; gap: 10px; align-items: center;">
-                <button id="history-nav-btn" class="eng-btn-secondary">CONSULTAR HISTORIAL</button>
-                <span id="system-status" class="status-indicator">SYSTEM: ONLINE</span>
+            <div class="header-actions">
+                <button id="history-nav-btn" class="eng-btn-secondary">HISTORIAL</button>
             </div>
         </header>
 
         <main>
             <div id="welcome-screen" class="modern-welcome">
+                <div class="circuit-bg"></div>
                 <div class="welcome-card engineering-card">
-                    <div class="technical-grid-bg"></div>
-                    <div class="welcome-visual">
-                        <!-- Technical Blueprint SVG -->
-                        <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" class="blueprint-svg">
-                            <rect x="10" y="10" width="180" height="100" fill="none" stroke="#004a99" stroke-width="0.5"
-                                stroke-dasharray="2,2" />
-                            <path d="M40 30 H160 M40 50 H160 M40 70 H160 M40 90 H100" stroke="#004a99"
-                                stroke-width="0.5" opacity="0.3" />
-                            <circle cx="160" cy="90" r="15" fill="none" stroke="#004a99" stroke-width="1" />
-                            <path d="M150 90 L170 90 M160 80 L160 100" stroke="#004a99" stroke-width="1" />
-                            <rect x="50" y="20" width="30" height="30" fill="#004a99" opacity="0.1" />
-                            <text x="52" y="32" font-size="6" fill="#004a99" font-family="monospace">DATA_PACK-01</text>
-                        </svg>
+                    <div class="welcome-logo-large">
+                        <img src="logo_vertical.jpg" alt="DIGIROUTA Logo">
                     </div>
-                    <h1>Portal de Ingeniería Operativa</h1>
-                    <p>Monitorización y gestión de rutas en tiempo real.</p>
-                    <div class="welcome-features engineering-tags">
-                        <span>STATUS: ACTIVE</span>
-                        <span>ENV: PRODUCTION</span>
-                        <span>USER: OPERARIO</span>
+                    <h1>Benvinguts al Full de Ruta Digital</h1>
+                    <p class="welcome-subtitle">Monitorització i gestió en temps real.</p>
+
+                    <div class="status-badges">
+                        <span class="badge badge-actiu">STATUS: ACTIU</span>
+                        <span class="badge badge-prod">ENTORN: PRODUCCIÓ</span>
+                        <span class="badge badge-user">USUARI: OPERARI</span>
                     </div>
-                    <div class="welcome-help technical-note">
-                        <strong>SISTEMA PREPARADO:</strong> Introduzca el identificador <strong>Nº Full</strong> en la
-                        consola superior para desplegar la hoja de ruta.
+
+                    <div class="instruction-box">
+                        <div class="info-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                            </svg>
+                        </div>
+                        <p>Introdueix l'identificador Nº Full a la consola superior per desplegar la fulla de ruta.</p>
                     </div>
                 </div>
             </div>
 
             <div id="error-message"
                 style="display: none; color: #c0392b; text-align: center; margin-top: 20px; font-weight: 600;">
-                No se ha encontrado ninguna hoja de ruta con ese número.
+                No s'ha trobat cap full de ruta amb aquest número.
             </div>
 
             <article class="route-sheet" id="sheet-container">
                 <!-- 3-Column Top Header -->
                 <div class="sheet-top-header">
                     <div class="logos" style="display: flex; align-items: center; justify-content: flex-start; gap: 0;">
-                        <img src="https://i.ibb.co/XrnM3hB/logos-fcc-arema.png" alt="Logos FCC AREMA"
-                            style="height: 50px; object-fit: contain;">
+                        <img src="logo_vertical.jpg" alt="Logos FCC AREMA" style="height: 50px; object-fit: contain;">
                     </div>
                     <div class="header-center">
                         <h1 style="font-size: 2.2rem; margin: 15px 0;">Full de ruta digital</h1>
@@ -137,7 +123,7 @@
                         <div class="field-value" id="val-equipo">-</div>
                     </div>
                     <div class="field">
-                        <div class="field-label">Sector a realizar</div>
+                        <div class="field-label">Sector a realitzar</div>
                         <div class="field-value" id="val-sectores">-</div>
                     </div>
                 </div>
@@ -149,19 +135,22 @@
                         <div class="veh-col">
                             <div class="field-label"
                                 style="background: none; border: none; color: #666; font-size: 0.65rem;">Matrícula</div>
-                            <div class="field-value" id="val-vehicle-matricula" style="font-size: 1.4rem;">-</div>
+                            <input type="text" class="field-value sheet-input" id="val-vehicle-matricula"
+                                placeholder="EXXXBBB"
+                                style="font-size: 1.4rem; border: none; background: transparent; width: 100%; text-align: center; font-weight: bold; border-bottom: 2px dashed #ddd;">
                         </div>
                         <div class="veh-col">
                             <div class="field-label"
                                 style="background: none; border: none; color: #666; font-size: 0.65rem;">Calca</div>
-                            <div class="field-value" id="val-vehicle-calca" style="font-size: 1.4rem;">-</div>
+                            <input type="text" class="field-value sheet-input" id="val-vehicle-calca" placeholder="XXXX"
+                                style="font-size: 1.4rem; border: none; background: transparent; width: 100%; text-align: center; font-weight: bold; border-bottom: 2px dashed #ddd;">
                         </div>
                         <div class="veh-col">
                             <div class="field-label"
                                 style="background: none; border: none; color: #666; font-size: 0.65rem;">Vehicle</div>
-                            <div class="field-value" id="val-vehicle-desc"
-                                style="font-size: 0.9rem; padding-top: 10px;">-
-                            </div>
+                            <input type="text" class="field-value sheet-input" id="val-vehicle-desc"
+                                placeholder="DESC VEHICLE"
+                                style="font-size: 0.9rem; padding-top: 10px; border: none; background: transparent; width: 100%; text-align: center; border-bottom: 2px dashed #ddd;">
                         </div>
                     </div>
                 </div>
@@ -175,7 +164,7 @@
                             <input type="checkbox" id="check-cinturo">
                         </div>
                         <div class="checklist-item">
-                            <label>Estado ruedas</label>
+                            <label>Estat de les rodes</label>
                             <input type="checkbox" id="check-ruedas">
                         </div>
                         <div class="checklist-item">
@@ -200,7 +189,7 @@
                         </div>
                         <div class="checklist-item">
                             <div class="fuel-input-container">
-                                <label>Repost. combustible</label>
+                                <label>Proveïment combustible</label>
                                 <input type="number" id="input-litros" class="fuel-liters" placeholder="L.">
                             </div>
                             <input type="checkbox" id="check-combustible">
@@ -215,8 +204,8 @@
                             <th colspan="3">Personal</th>
                         </tr>
                         <tr>
-                            <th style="width: 25%;">Categoría</th>
-                            <th style="width: 15%;">Codí</th>
+                            <th style="width: 25%;">Categoria</th>
+                            <th style="width: 15%;">Codi</th>
                             <th>Nom</th>
                         </tr>
                     </thead>
@@ -278,53 +267,52 @@
                 <!-- Incidencias del servicio -->
                 <div
                     style="background: var(--primary-blue); border: 1px solid var(--border-grey); font-size: 0.7rem; padding: 2px 5px; font-weight: bold; margin-top: 10px; color: #fff;">
-                    Incidencias del servicio (Reporte del operario)</div>
+                    Incidències del servei (Report de l'operari)</div>
                 <div class="report-buttons">
-                    <button class="report-btn fraction-btn" data-append="Cargado: Paper">Paper</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Envases">Envases</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Organica">Organica</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Rebuig">Rebuig</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Cristal">Cristal</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Restos vegetales">Restos
-                        vegetales</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: muebles">muebles</button>
-                    <button class="report-btn fraction-btn" data-append="Cargado: Restos barredora">Restos
-                        barredora</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Paper">Paper</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Envasos">Envasos</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Orgànica">Orgànica</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Rebuig">Rebuig</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Vidre">Vidre</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Restes vegetals">Restes
+                        vegetals</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Mobles">Mobles</button>
+                    <button class="report-btn fraction-btn" data-append="Carregat: Restes escombradora">Restes
+                        escombradora</button>
                 </div>
                 <textarea id="input-incidencias" class="sheet-input"
                     style="border: 1px solid var(--border-grey); padding: 10px; min-height: 80px; width: 100%; resize: vertical;"
-                    placeholder="Escribe aquí cualquier novedad o incidencia ocurrida durante el servicio..."></textarea>
+                    placeholder="Escriu aquí qualsevol novetat o incidència ocorreguda durant el servei..."></textarea>
 
                 <!-- Averías del vehículo -->
                 <div
                     style="background: #ffccbc; border: 1px solid var(--border-grey); font-size: 0.7rem; padding: 2px 5px; font-weight: bold; margin-top: 10px;">
-                    Averías del vehículo</div>
+                    Averies del vehicle</div>
                 <div class="report-buttons">
-                    <button class="report-btn breakdown-btn" data-append="Vehículo Averiado">⚠️ Vehículo
-                        Averiado</button>
+                    <button class="report-btn breakdown-btn" data-append="Vehicle Avariat">⚠️ Vehicle Avariat</button>
                 </div>
                 <textarea id="input-averias" class="sheet-input"
                     style="border: 1px solid var(--border-grey); padding: 10px; min-height: 80px; width: 100%; resize: vertical;"
-                    placeholder="Escribe aquí si el vehículo ha tenido algún problema mecánico o avería..."></textarea>
+                    placeholder="Escriu aquí si el vehicle ha tingut algun problema mecànic o averia..."></textarea>
 
                 <!-- Secondary Vehicle Section (Hidden by default) -->
                 <div id="secondary-vehicle-section"
                     style="display: none; margin-top: 20px; border: 2px solid #ff9800; padding: 15px; border-radius: 8px; background: #fffcf5;">
                     <div
                         style="background: #ff9800; color: white; padding: 5px 10px; font-weight: bold; font-size: 0.9rem; margin: -15px -15px 15px -15px; border-radius: 6px 6px 0 0; display: flex; justify-content: space-between; align-items: center;">
-                        <span>⚠️ VEHÍCULO DE SUSTITUCIÓN</span>
+                        <span>⚠️ VEHICLE DE SUBSTITUCIÓ</span>
                         <span style="font-size: 0.7rem; font-family: monospace;">ENV: ACTIVATE_SECONDARY</span>
                     </div>
 
                     <div class="field-group">
                         <div class="field">
-                            <div class="field-label" style="background: #ef6c00;">Nueva Matrícula / Calca</div>
-                            <input type="text" id="v2-matricula" class="sheet-input" placeholder="Ej: 1234ABC / 9000"
+                            <div class="field-label" style="background: #ef6c00;">Nova Matrícula / Calca</div>
+                            <input type="text" id="v2-matricula" class="sheet-input" placeholder="Ex: 1234ABC / 9000"
                                 style="font-size: 1.2rem; font-weight: bold; text-transform: uppercase;">
                         </div>
                         <div class="field">
-                            <div class="field-label" style="background: #ef6c00;">Motivo de cambio</div>
-                            <div class="field-value" style="color: #666; font-style: italic;">Avería en vehículo
+                            <div class="field-label" style="background: #ef6c00;">Motiu del canvi</div>
+                            <div class="field-value" style="color: #666; font-style: italic;">Averia en el vehicle
                                 principal</div>
                         </div>
                     </div>
@@ -332,12 +320,12 @@
                     <!-- V2 Checklist -->
                     <div class="checklist-container" style="border-color: #ffb74d;">
                         <div class="checklist-header" style="background: #fff3e0;">Revisió obligatòria VEHICLE
-                            SUSTITUCIÓ</div>
+                            SUBSTITUCIÓ</div>
                         <div class="checklist-grid">
                             <div class="checklist-item"><label>Cinturó</label><input type="checkbox"
                                     id="v2-check-cinturo"></div>
-                            <div class="checklist-item"><label>Ruedas</label><input type="checkbox"
-                                    id="v2-check-ruedas"></div>
+                            <div class="checklist-item"><label>Rodes</label><input type="checkbox" id="v2-check-ruedas">
+                            </div>
                             <div class="checklist-item"><label>Extintor</label><input type="checkbox"
                                     id="v2-check-extintor"></div>
                             <div class="checklist-item"><label>Llums</label><input type="checkbox" id="v2-check-llums">
@@ -353,7 +341,7 @@
                     <table class="sheet-table" style="margin-top: 15px;">
                         <thead>
                             <tr style="background: #ef6c00;">
-                                <th colspan="5" style="background: #ef6c00;">Comptadors VEHICLE SUSTITUCIÓ</th>
+                                <th colspan="5" style="background: #ef6c00;">Comptadors VEHICLE SUBSTITUCIÓ</th>
                             </tr>
                             <tr>
                                 <th>Esdeveniment</th>
@@ -365,7 +353,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="row-header">Inici Sust.</td>
+                                <td class="row-header">Inici Subst.</td>
                                 <td><input type="text" id="v2-horo-sortida" class="sheet-input"></td>
                                 <td><input type="text" id="input-v2-km-sortida" class="sheet-input"></td>
                                 <td><input type="text" id="v2-horo-aux-sortida" class="sheet-input"></td>
@@ -394,41 +382,48 @@
                             <polyline points="17 21 17 13 7 13 7 21"></polyline>
                             <polyline points="7 3 7 8 15 8"></polyline>
                         </svg>
-                        GUARDAR EN HISTORIAL
+                        GUARDAR A L'HISTORIAL
                     </button>
                 </div>
             </article>
 
             <!-- History Screen (Hidden by default) -->
-            <section id="history-screen" style="display: none; width: 100%; max-width: 1200px; margin: 0 auto;">
-                <div class="engineering-card" style="padding: 30px;">
+            <section id="history-screen"
+                style="display: none; width: 100%; max-width: 1300px; margin: 0 auto; position: relative;">
+                <div class="circuit-bg" style="border-radius: 12px;"></div>
+                <div class="engineering-card" style="padding: 30px; position: relative; z-index: 10;">
                     <div class="technical-grid-bg"></div>
                     <div
                         style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid var(--primary-blue); padding-bottom: 15px;">
                         <div>
-                            <h1 style="color: var(--primary-blue); font-size: 2rem; margin: 0;">Historial de Registros
+                            <h1 style="color: var(--primary-blue); font-size: 2rem; margin: 0;">Historial de Registres
                             </h1>
-                            <p style="color: var(--text-muted); margin: 5px 0 0 0;">CONSULTA DE OPERACIONES FINALIZADAS
+                            <p style="color: var(--text-muted); margin: 5px 0 0 0;">CONSULTA D'OPERACIONS FINALITZADES
                             </p>
                         </div>
-                        <button id="back-to-main-btn" class="eng-btn-secondary">VOLVER AL INICIO</button>
+                        <button id="back-to-main-btn" class="eng-btn-secondary">TORNAR A L'INICI</button>
                     </div>
 
                     <div class="history-filters"
                         style="display: flex; gap: 15px; margin-bottom: 20px; background: #f0f4f8; padding: 15px; border-radius: 8px;">
-                        <input type="text" id="history-search"
-                            placeholder="Filtrar por Nº Full, Operario o Matrícula..."
+                        <input type="text" id="history-search" placeholder="Filtrar per Nº Full, Operari o Matrícula..."
                             style="flex: 1; padding: 10px 15px; border: 1px solid var(--border-grey); border-radius: 6px; outline: none;">
                     </div>
 
                     <table class="history-table" style="width: 100%; border-collapse: collapse; background: white;">
                         <thead>
                             <tr style="background: var(--primary-blue); color: white;">
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Fecha</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Data</th>
                                 <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Nº Full</th>
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Operario</th>
-                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Vehículo</th>
-                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd;">Acciones</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Matrícula</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Km (E/S)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Horo (E/S)</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Sector</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd;">Rev.</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Càrrega</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Observacions</th>
+                                <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Operari</th>
+                                <th style="padding: 12px; text-align: center; border: 1px solid #ddd;">Accions</th>
                             </tr>
                         </thead>
                         <tbody id="history-table-body">
@@ -437,7 +432,7 @@
                     </table>
                     <div id="no-history-msg"
                         style="display: none; text-align: center; padding: 40px; color: var(--text-muted); font-style: italic;">
-                        No hay registros guardados en el historial todavía.
+                        Encara no hi ha registres desats a l'historial.
                     </div>
                 </div>
             </section>
@@ -445,7 +440,7 @@
     </div> <!-- End #app-content -->
 
     <script src="routes_data.js"></script>
-    <script src="app.js"></script>
+    <script src="app.js?v=2502"></script>
 </body>
 
 </html>

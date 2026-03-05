@@ -1,0 +1,9 @@
+--- Extra Tables Columns ---
+
+--- vision.srmtsr ---
+tsr_tsr
+srm_tsr
+ord_tsr
+geo_tsr
+
+--- vision.hr_control_salida ---

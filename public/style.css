@@ -34,306 +34,197 @@
     z-index: 0;
 }
 
+/* Main Layout & Background */
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #f0f2f5 0%, #e0e4e8 100%);
+    background: #f8f9fa;
     color: var(--text-dark);
     font-size: 13px;
     line-height: 1.5;
     min-height: 100vh;
 }
 
-/* Login Overlay Styles */
-#login-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, #004a99, #00aeef);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    backdrop-filter: blur(10px);
-}
-
-.login-card {
-    background: var(--glass-bg);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.login-logo img {
-    height: 60px;
-    margin-bottom: 20px;
-}
-
-.login-card h2 {
-    font-size: 1.8rem;
-    color: var(--primary-blue);
-    margin-bottom: 10px;
-}
-
-.login-card p {
-    color: var(--text-muted);
-    margin-bottom: 25px;
-}
-
-.login-input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.login-input-group input {
-    padding: 12px 15px;
-    border: 1px solid var(--border-grey);
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s;
-}
-
-.login-input-group input:focus {
-    border-color: var(--primary-blue);
-    box-shadow: 0 0 0 4px rgba(0, 74, 153, 0.1);
-}
-
-.login-input-group button {
-    padding: 12px;
-    background: var(--primary-blue);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.login-input-group button:hover {
-    background: #003a7a;
-}
-
-/* Modern Welcome Screen */
-.modern-welcome {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    min-height: calc(100vh - 80px);
-}
-
-.engineering-card {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(0, 74, 153, 0.2) !important;
-    background: var(--white) !important;
-}
-
-.engineering-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--primary-blue);
-}
-
-.welcome-card {
-    background: var(--white);
-    padding: 50px;
-    border-radius: 24px;
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-    max-width: 600px;
-    width: 100%;
-    border: 1px solid #f0f0f0;
-}
-
-.welcome-visual {
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-}
-
-.blueprint-svg {
-    width: 100%;
-    max-width: 300px;
-    filter: drop-shadow(0 4px 12px rgba(0, 74, 153, 0.1));
-}
-
-.welcome-card h1 {
-    font-size: 2.5rem;
-    color: var(--primary-blue);
-    margin-bottom: 15px;
-    font-weight: 800;
-}
-
-.welcome-card p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-bottom: 30px;
-}
-
-.engineering-tags {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.engineering-tags span {
-    font-family: 'Inter', monospace;
-    font-size: 0.7rem;
-    padding: 4px 10px;
-    background: #f0f4f8;
-    border-left: 3px solid var(--primary-blue);
-    color: var(--text-dark);
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.98) translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-.welcome-card,
-.login-card {
-    animation: fadeInScale 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.welcome-help {
-    background: #fff9db;
-    padding: 15px;
-    border-radius: 12px;
-    font-size: 0.95rem;
-    color: #856404;
-    border: 1px solid #ffeeba;
-}
-
-/* Header & Search Bar Refinements */
-header {
-    background: var(--white);
-    padding: 12px 30px;
+/* Header Redesign */
+.main-header {
+    background: #ffffff;
+    padding: 10px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid #eee;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-.subtitle-engineering {
-    font-family: 'Inter', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: var(--accent-blue);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.brand-text {
-    font-weight: 900;
-    font-size: 1.25rem;
-    color: var(--primary-blue);
-    letter-spacing: -0.5px;
-}
-
-.brand-text small {
-    font-size: 0.6rem;
-    background: var(--primary-blue);
-    color: white;
-    padding: 2px 4px;
-    border-radius: 3px;
-    vertical-align: middle;
-    margin-left: 5px;
+.header-logo {
+    height: 65px;
+    object-fit: contain;
 }
 
 .search-box {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
+    flex-grow: 1;
+    justify-content: center;
 }
 
 .eng-date-input {
-    padding: 8px 12px;
-    border: 1px solid var(--border-grey);
-    border-radius: 6px;
-    font-family: 'Inter', monospace;
-    font-size: 0.85rem;
-    color: var(--primary-blue);
-    background: #f8f9fa;
-    outline: none;
-    border-left: 4px solid var(--primary-blue);
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fdfdfd;
+    font-size: 0.9rem;
+    color: #444;
 }
 
 .search-box input[type="text"] {
+    width: 350px;
     padding: 10px 15px;
-    border: 1px solid var(--border-grey);
-    border-radius: 6px;
-    width: 250px;
-    font-size: 0.9rem;
-    outline: none;
-    transition: all 0.2s;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #fff;
+    transition: box-shadow 0.2s;
 }
 
 .search-box input[type="text"]:focus {
-    border-color: var(--primary-blue);
     box-shadow: 0 0 0 3px rgba(0, 74, 153, 0.1);
+    border-color: var(--primary-blue);
+    outline: none;
 }
 
-.status-indicator {
-    font-family: 'Inter', monospace;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--success-green);
-    background: rgba(46, 204, 113, 0.1);
-    padding: 4px 10px;
-    border-radius: 4px;
-    letter-spacing: 1px;
-}
-
-.search-box button {
+#search-btn {
     background: #004a99;
     color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 700;
     border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
     cursor: pointer;
-    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
 }
 
-/* Route Sheet Container */
-main {
-    padding: 20px;
+#search-btn:hover {
+    background: #003a7a;
+}
+
+/* Modern Welcome Screen */
+.modern-welcome {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 80px);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
-#welcome-screen {
+/* Circuit Background Pattern - High-Quality SVG */
+.circuit-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f8f9fa;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%23004a99' stroke-width='0.5' stroke-opacity='0.1'%3E%3Cpath d='M10 10h80v80h-80zM50 10v80M10 50h80'/%3E%3Ccircle cx='10' cy='10' r='1.5' fill='%23004a99' fill-opacity='0.15'/%3E%3Ccircle cx='90' cy='10' r='1.5' fill='%23004a99' fill-opacity='0.15'/%3E%3Ccircle cx='10' cy='90' r='1.5' fill='%23004a99' fill-opacity='0.15'/%3E%3Ccircle cx='90' cy='90' r='1.5' fill='%23004a99' fill-opacity='0.15'/%3E%3Ccircle cx='50' cy='50' r='2' fill='%2328a745' fill-opacity='0.15'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.welcome-card {
+    background: #ffffff;
+    padding: 60px 50px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
     text-align: center;
-    margin-top: 50px;
+    width: 100%;
+    max-width: 750px;
+    z-index: 10;
+    border: 1px solid #f0f0f0;
 }
 
+.welcome-logo-large img {
+    height: 140px;
+    margin-bottom: 30px;
+}
+
+.welcome-card h1 {
+    font-size: 3.2rem;
+    color: #004a99;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.welcome-subtitle {
+    font-size: 1.4rem;
+    color: #888;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.status-badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 45px;
+}
+
+.badge {
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge-actiu {
+    background: #34c759;
+}
+
+.badge-prod {
+    background: #004a99;
+}
+
+.badge-user {
+    background: #2c3e50;
+}
+
+.instruction-box {
+    background: linear-gradient(135deg, #5c59ac 0%, #46438b 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    margin-top: 20px;
+    box-shadow: 0 10px 20px rgba(70, 67, 139, 0.2);
+}
+
+.info-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.instruction-box p {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 500;
+    opacity: 0.95;
+    line-height: 1.4;
+}
+
+/* Hide route sheet by default */
 .route-sheet {
     width: 1050px;
     max-width: 98vw;
@@ -341,7 +232,7 @@ main {
     padding: 15px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     display: none;
-    /* Shown by JS */
+    margin: 20px auto;
 }
 
 /* 3-Column Top Header */
@@ -536,6 +427,30 @@ textarea.sheet-input {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     background: #fff;
+}
+
+/* Sheet Inputs - Premium Editable Style */
+.sheet-input {
+    border: none;
+    border-bottom: 2px dashed #ddd;
+    background: transparent;
+    padding: 2px 5px;
+    font-family: inherit;
+    color: #333;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.sheet-input:focus {
+    border-bottom: 2px solid var(--primary-blue);
+    background: rgba(0, 74, 153, 0.03);
+    color: #000;
+}
+
+.sheet-input::placeholder {
+    color: #ccc;
+    font-style: italic;
+    font-size: 0.8rem;
 }
 
 .checklist-item {
